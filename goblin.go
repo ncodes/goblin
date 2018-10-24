@@ -321,6 +321,14 @@ func (g *G) XIt(name string, h ...interface{}) {
 	}
 }
 
+func (g *G) Specify(name string, h ...interface{}) {
+	g.It(name, h...)
+}
+
+func (g *G) XSpecify(name string, h ...interface{}) {
+	g.XIt(name, h...)
+}
+
 func matchesRegex(value string) bool {
 	if runRegex != nil {
 		return runRegex.MatchString(value)
