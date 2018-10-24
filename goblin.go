@@ -21,6 +21,32 @@ type Itable interface {
 	failed(string, []string)
 }
 
+func (g *G) XDescribe(name string, h func()) {
+	g.reporter.Begin()
+	g.reporter.ItIsExcluded(name)
+	g.reporter.End()
+}
+
+func (g *G) XContext(name string, h func()) {
+	g.reporter.Begin()
+	g.reporter.ItIsExcluded(name)
+	g.reporter.End()
+}
+
+func (g *G) XWhen(name string, h func()) {
+	g.reporter.Begin()
+	g.reporter.ItIsExcluded(name)
+	g.reporter.End()
+}
+
+func (g *G) Context(name string, h func()) {
+	g.Describe(name, h)
+}
+
+func (g *G) When(name string, h func()) {
+	g.Describe(name, h)
+}
+
 func (g *G) Describe(name string, h func()) {
 	d := &Describe{name: name, h: h, parent: g.parent}
 
@@ -284,7 +310,7 @@ func (g *G) It(name string, h ...interface{}) {
 	}
 }
 
-func (g *G) Xit(name string, h ...interface{}) {
+func (g *G) XIt(name string, h ...interface{}) {
 	if matchesRegex(name) {
 		xit := &Xit{name: name, parent: g.parent, reporter: g.reporter}
 		notifyParents(g.parent)

@@ -156,11 +156,11 @@ func TestReportingExcluded(t *testing.T) {
 	g.SetReporter(fakeReporter)
 
 	g.Describe("One", func() {
-		g.Xit("One", func() {
+		g.XIt("One", func() {
 			g.Assert(1).Equal(1)
 		})
 		g.Describe("Two", func() {
-			g.Xit("Two", func() {
+			g.XIt("Two", func() {
 				g.Assert(2).Equal(2)
 			})
 		})

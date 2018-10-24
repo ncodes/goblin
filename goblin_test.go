@@ -122,14 +122,14 @@ func TestExcluded(t *testing.T) {
 	count := 0
 	g.Describe("Numbers", func() {
 
-		g.Xit("Should add numbers", func() {
+		g.XIt("Should add numbers", func() {
 			count++
 			sum := 1 + 1
 			g.Assert(sum).Equal(2)
 		})
 
 		g.Describe("Substraction", func() {
-			g.Xit("Should substract numbers", func() {
+			g.XIt("Should substract numbers", func() {
 				count++
 				sub := 5 - 5
 				g.Assert(sub).Equal(1)
