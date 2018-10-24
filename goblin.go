@@ -44,7 +44,7 @@ func (g *G) Context(name string, h func()) {
 }
 
 func (g *G) When(name string, h func()) {
-	g.Describe(name, h)
+	g.Describe("When "+name, h)
 }
 
 func (g *G) Describe(name string, h func()) {
